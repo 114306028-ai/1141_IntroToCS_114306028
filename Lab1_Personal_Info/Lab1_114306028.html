@@ -6,28 +6,81 @@
 	<title>Lab_114306028.html</title>
 </head>
 <body>
+<form>
 <table border = "1">
-	<th>About -- 114306028</th>
-	
 	<tr>
-	 <th rowspan = "3">
-		<img src = "pic.jpeg" width = "138" height = "205">
-	 </th>
-     <th colspan = "2">
-	 	<td>Name:<input type = "text"><br>
-	 	<form>
+		<th colspan = "3">About -- 114306028</th><!--標題用th-->
+	</tr>	
+
+	<tr>
+	 <td rowspan = "3">
+		<img src = "pic.jpeg" width = "93" height = "138" align = "center"><br>
+		personal photo
+	 </td>
+		<!--merge two colums-->
+		<td colspan = "2">
+			Name:<input type = "text"><br>
+	 		Gender:
 		 	<input type = "radio" name = "gender" value = "male">Male
 		 	<input type = "radio" name = "gender" value = "female">Female
 		 	<input type = "radio" name = "gender" value = "other">Other
-	 	</form>
 	 	</td>
-	 </th>
+	</tr>
 
-	 <tr>
-	  <td>County:<select name = "county">
-	  	<option value ="taipei">Taipei</option>
-	  	<option value ="tainan">Tainan</option>
-	  	<option value ="taichung">Taichung</option>
-	  	<option value ="taoyuan">Taoyuan</option>
+	<tr>
+	  <td>
+	  	County:
+	  	<select name = "county">
+		  	<option value ="taipei">Taipei</option>
+		  	<option value ="tainan">Tainan</option>
+		  	<option value ="taichung">Taichung</option>
+		  	<option value ="taoyuan">Taoyuan</option>
+		  </select>
+	  </td>
+	  <td>
+	  	Birthday:
+	  	<input type = "date" id="birthday" name="birthday">
+	  </td>
+	</tr>
+
+	<tr>
+		<td colspan = "2">
+			E-mail:
+			<input type = "email"</td>
+	</tr>
+
+	<tr>
+		<td>Hobby</td>
+		<td colspan="2"><!--colspan="2"-->
+			<input type="checkbox" name="hobby">Swimming
+			<input type="checkbox" name="hobby">Volleyball
+			<input type="checkbox" name="hobby">Movie
+			<input type="checkbox" name="hobby">Game
+			<input type="checkbox" name="hobby">Sleep
+		</td>
+	</tr>
+	<tr>
+		<td>Skill</td>
+		<td colspan="2">
+			<input type="checkbox" name="skill">Java
+			<input type="checkbox" name="skill">HTML
+			<input type="checkbox" name="skill">Python
+			<input type="checkbox" name="skill">Microsoft office
+			<input type="checkbox" name="skill">Premiere
+		</td>
+	</tr>
+	<tr>
+		<td>Say something</td>
+		<td colspan="2">
+			<textarea rows = "4" cols = "30" placeholder ="Say something here."></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">	
+		<input type = "submit" value="提交">
+		<input type = "reset" value="重設">
+	</tr>
+</table>
+</form>
 </body>
 </html>
