@@ -1,0 +1,249 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #eeede1;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Requirement #1: Main Container */
+.main-container {
+    width: 1000px;
+    max-width: 95%;
+    margin: 30px auto;
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Requirement #2: Panels Division */
+.left-panel {
+    width: 300px;
+    flex-shrink: 0;
+    background-color: #4a6fa5;
+    color: white;
+    border-radius: 12px 0 0 12px;
+    padding-bottom: 20px;
+}
+
+.right-panel {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+/* Requirement #4: Section Titles */
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: #333;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+/* Requirement #3: Left Panel Details */
+.photo-panel {
+    padding-bottom: 15px;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px 0 0 0;
+}
+
+.name-title-box {
+    padding: 15px 20px 0;
+}
+
+.student-name {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.student-title {
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+.text-content {
+    padding: 0 20px;
+}
+
+.text-content .section-title {
+    color: white;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.text-content p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.text-content a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.school-icon {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.nccu-logo {
+    width: 80px;
+    height: auto;
+    opacity: 0.8;
+}
+
+/* Requirement #5: Education Section (Timeline) */
+.timeline-item {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.timeline-item .year {
+    font-weight: bold;
+    color: #4a6fa5;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.timeline-item .description {
+    flex-grow: 1;
+    color: #555;
+}
+
+/* Requirement #6: Skill Section (Tags) */
+.skill-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: #e6f0f7;
+    color: #4a6fa5;
+    transition: background-color 0.2s;
+}
+
+.tag:hover {
+    background-color: #d0e4f5;
+}
+
+/* Requirement #7: Homework & Lab Section (Two Columns) */
+.hw-lab-container {
+    display: flex;
+    gap: 20px;
+}
+
+.hw-column,
+.lab-column {
+    flex: 1;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.hw-column h3,
+.lab-column h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+    color: #333;
+}
+
+.hw-column ul li,
+.lab-column ul li {
+    margin-bottom: 5px;
+}
+
+.hw-column a,
+.lab-column a {
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+    transition: color 0.2s, border-bottom-color 0.2s;
+}
+
+.hw-column a:hover,
+.lab-column a:hover {
+    color: #4a6fa5;
+    border-bottom-color: #4a6fa5;
+}
+
+/* Requirement #8: Favorite Music Section */
+.music-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.music-item {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.music-item a {
+    color: #333;
+    display: block;
+}
+
+.music-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+.music-icon:hover {
+    border-color: #4a6fa5;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.music-item p {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.music-note {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+    text-align: center;
+}
