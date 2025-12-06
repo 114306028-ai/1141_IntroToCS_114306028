@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Number Guessing Game</title>
+</head>
+<body>
+	<h1>114306028_Number Guessing Game</h1>
+
+    <div id="game-output">
+        <p>Click "Start Game" to begin guessing a number between 1 and 100.</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <script>
+        var answer;
+        var chances;
+        var minRange = 1;
+        var maxRange = 100;
+        var outputDiv = document.getElementById('game-output');
+
+        function startGame() {
+            // Generate a random integer between 1 and 100
+            answer = Math.floor(Math.random() * 100) + 1;
+            chances = 7;
+            minRange = 1;
+            maxRange = 100;
+
+            outputDiv.innerHTML = '<p>Game started!</p>';
+            guessNumber();
+        }
+
+        function guessNumber() {
+            if (chances <= 0) {
+                endGame(false);
+                return;
+            }
+
+            var promptMessage = 
+                minRange + ' 到 ' + maxRange + ' 之間的整數。\n' + 
+                '你還有 ' + chances + ' 次機會。';
+
+            // Use window.prompt()
+            var input = window.prompt("請輸入" + promptMessage);
+
+            if (input === null) {
+                alert("遊戲已取消。");
+                outputDiv.innerHTML = '<p>遊戲已取消。請點擊「開始遊戲」重新開始。</p><button onclick="startGame()">Start Game</button>';
+                return;
+            }
+
+            // Input validation
+            var trimmedInput = input.trim(); 
+
+            if (trimmedInput === "" || isNaN(trimmedInput)) {
+                alert("請輸入有效的數字！");
+                guessNumber();
+                return;
+            }
+
+            var guess = Number(trimmedInput);
+            
+            if (!Number.isInteger(guess)) {
+                alert("請輸入整數！");
+                guessNumber();
+                return;
+            }
+
+            // Check if the number is within the absolute range of 1 to 100
+            if (guess < 1 || guess > 100) {
+                alert("請輸入有效範圍內的數字(不能超出1到100)！"); 
+                guessNumber();
+                return;
+            }
+            
+            chances--;
+
+            if (guess === answer) {
+                endGame(true);
+            } else if (guess < answer) {
+                alert("答案比 " + guess + " 大！");
+                minRange = Math.max(minRange, guess + 1); 
+                
+                if (chances > 0) {
+                    guessNumber();
+                } else {
+                    endGame(false);
+                }
+            } else { // guess > answer
+                alert("答案比 " + guess + " 小！");
+                maxRange = Math.min(maxRange, guess - 1); 
+
+                if (chances > 0) {
+                    guessNumber();
+                } else {
+                    endGame(false);
+                }
+            }
+        }
+
+        function endGame(isWin) {
+            if (isWin) {
+                // When the guess is correct, use alert() to notify the user.
+                alert("恭喜你答對了!正確答案是 " + answer);
+                
+                // Insert correct.jpg into the <div>
+                outputDiv.innerHTML = 
+                    '<h2>恭喜你答對了! </h2>' +
+                    '<p>正確答案是 ' + answer + '</p>' +
+                    '<img src="correct.jpg" alt="Correct" style="max-width:300px;">' +
+                    '<p><button onclick="startGame()">再玩一次</button></p>';
+            } else {
+                // When attempts reach zero, notify the user of the correct answer.
+                alert("The correct answer is  " + answer);
+
+                // Insert wrong.jpg into the <div>
+                outputDiv.innerHTML = 
+                    '<h2>Lose..</h2>' +
+                    '<p>The correct answer is  ' + answer + '</p>' +
+                    '<img src="wrong.jpg" alt="Wrong Guess" style="max-width:300px;">' +
+                    '<p><button onclick="startGame()">Play again</button></p>';
+            }
+        }
+    </script>
+</body>
+</html>
