@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1A2B Game</title>
+</head>
+<body>
+
+    <h1 id="header">114306028_HW7_1A2B</h1>
+    <p>Enter 4 unique numbers
+
+    <input type="text" id="guessInput" maxlength="10">
+    <button onclick="play()">Guess!</button></p>
+
+    <div id="gameRecord">
+        <p>Game Record:</p>
+    </div>
+
+    <script>
+        let secretAnswer = "";
+        let attemptCount = 0;
+
+        function generateAnswer() {
+            let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            let answerArray = [];
+
+            while (answerArray.length < 4) {
+                let randomIndex = Math.floor(Math.random() * digits.length);
+                let selectedDigit = digits.splice(randomIndex, 1)[0];
+                answerArray.push(selectedDigit);
+            }
+
+            return answerArray.join('');
+        }
+        
+        function isValid(str) {
+            if (str.length !== 4 || !/^\d{4}$/.test(str)) {
+                alert("Input must be exactly 4 digits.");
+                return false;
+            }
+
+            let uniqueDigits = new Set(str.split(''));
+            if (uniqueDigits.size !== 4) {
+                alert("The numbers (digits) must not be repeated.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkAB(guess, ans) {
+            let a = 0;
+            let b = 0;
+            
+            const guessArray = guess.split('');
+            const ansArray = ans.split('');
+
+            for (let i = 0; i < 4; i++) {
+                if (guessArray[i] === ansArray[i]) {
+                    a++;
+                } else if (ans.includes(guessArray[i])) {
+                    b++;
+                }
+            }
+
+            return `${a}A${b}B`;
+        }
+
+        function play() {
+            const inputField = document.getElementById('guessInput');
+            const guess = inputField.value;
+
+            if (!isValid(guess)) {
+                return;
+            }
+
+            attemptCount++;
+
+            const result = checkAB(guess, secretAnswer);
+
+            const recordDiv = document.getElementById('gameRecord');
+            const newRecord = document.createElement('p');
+            newRecord.textContent = `第${attemptCount}次:${guess} → ${result}`;
+            recordDiv.appendChild(newRecord);
+
+            inputField.value = ""; 
+            
+            if (result === "4A0B") {
+                alert(`Success! You guessed the number in ${attemptCount} attempts!`);
+                document.querySelector('button').disabled = true;
+                inputField.disabled = true;
+            }
+        }
+
+        // Initialization: Generate the secret answer when the script loads
+        secretAnswer = generateAnswer();
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #guessInput {
+            padding: 5px;
+            font-size: 16px;
+            width: 80px;
+            text-align: center;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+       #gameRecord {
+            border: 2px solid #ccc; /* 框線樣式：粗細 顏色 */
+            padding: 10px; /* 框線內的留白 */
+            border-radius: 5px; /* 圓角效果 */
+            margin-top: 15px;
+        }
+        
+        #gameRecord p {
+            margin: 5px 0;
+            font-family: Arial, monospace;
+        }
+    </style>
+</body>
+</html>
