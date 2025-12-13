@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Title 置中 */
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 輸入區塊置中 */
+.input-area {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+/* 表格樣式 */
+table {
+    border-collapse: collapse;
+    margin: 0 auto; /* 表格置中 */
+    width: 500px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Header 粗體 */
+thead th {
+    font-weight: bold;
+}
+
+/* Footer 最粗 */
+tfoot td {
+    font-weight: 700;
+}
