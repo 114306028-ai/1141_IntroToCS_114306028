@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* 外框 */
+.container {
+    width: 300px;
+    border: 2px solid black;
+    padding: 15px;
+    margin: 30px auto;
+}
+
+/* 標題 */
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* 每一列 */
+.row {
+    margin-bottom: 10px;
+}
+
+/* 文字 */
+label {
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 輸入與下拉 */
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 按鈕 */
+button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* 結果 */
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+}

@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="container">
+        <h2>JS Calculator</h2>
+
+        <div class="row">
+            <label>Number 1</label>
+            <input type="number" id="num1">
+        </div>
+
+        <div class="row">
+            <label>Number 2</label>
+            <input type="number" id="num2">
+        </div>
+
+        <div class="row">
+            <label>Operate Way?</label>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">_</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <p id="result">Result = </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
