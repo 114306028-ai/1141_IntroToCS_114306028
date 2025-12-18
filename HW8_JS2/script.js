@@ -1,3 +1,20 @@
+const operator = document.getElementById("operator");
+const button = document.getElementById("calcBtn");
+
+const operatorTextMap = {
+    "+": "Add",
+    "-": "Subtract",
+    "*": "Multiply",
+    "/": "Divide"
+};
+
+// 下拉選單改變時，更新按鈕文字
+operator.addEventListener("change", function () {
+    button.textContent = operatorTextMap[operator.value];
+});
+
+button.addEventListener("click", calculate);
+
 function add(a, b) {
     return a + b;
 }
